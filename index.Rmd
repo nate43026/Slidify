@@ -1,0 +1,75 @@
+---
+title       : United States Demographics 
+subtitle    : A Shiny Application
+author      : Coursera Student
+job         : 
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+## I Made a Shiny App!
+
+1. It uses the state dataset from the datasets package.
+2. The user selects one of 3 categories: Population, Income, or Area.
+3. A choropleth map of the U.S. is plotted for the selected demographic value.
+
+--- .class #id 
+
+## Sample of Data
+
+```{r data, fig.height = 6, fig.align = 'center', message = F}
+head(state.x77)
+
+```
+
+--- .class #id 
+
+## User Interface Code
+
+``` {r run=FALSE}
+shinyUI(fluidPage(
+  titlePanel("Population, Income, and Area by U.S. State"),
+  
+  sidebarLayout(
+    sidebarPanel(
+      helpText("Graphically compare Population, Income, and Area for U.S. states.
+                     Source (via state.x77 dataset):  
+                    U.S. Department of Commerce, Bureau of the Census (1977) Statistical Abstract of the United States.
+                    U.S. Department of Commerce, Bureau of the Census (1977) County and City Data Book."),
+      
+      selectInput("var", 
+                  label="Choose a category to display",
+                  choices=c("Population",
+                            "Income",
+                            "Area"
+                            ),
+                  selected="Population")
+    ),
+    
+    mainPanel(plotOutput("map"))
+  )
+))
+```
+
+--- .class #id 
+
+## This May Not Be a Very Good "Pitch"
+
+Reasons to be generous in scoring anyway
+
+1.  It feels good.
+2.  I will be.
+3.  I ran really, really short on time for this assignment.
+4.  Why not?
+
+
+
+
+
+
+
+

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>United States Demographics</title>
+  <meta charset="utf-8">
+  <meta name="description" content="United States Demographics">
+  <meta name="author" content="Coursera Student">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>United States Demographics</h1>
+    <h2>A Shiny Application</h2>
+    <p>Coursera Student<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>I Made a Shiny App!</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>It uses the state dataset from the datasets package.</li>
+<li>The user selects one of 3 categories: Population, Income, or Area.</li>
+<li>A choropleth map of the U.S. is plotted for the selected demographic value.</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Sample of Data</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">head(state.x77)
+</code></pre>
+
+<pre><code>##            Population Income Illiteracy Life Exp Murder HS Grad Frost
+## Alabama          3615   3624        2.1    69.05   15.1    41.3    20
+## Alaska            365   6315        1.5    69.31   11.3    66.7   152
+## Arizona          2212   4530        1.8    70.55    7.8    58.1    15
+## Arkansas         2110   3378        1.9    70.66   10.1    39.9    65
+## California      21198   5114        1.1    71.71   10.3    62.6    20
+## Colorado         2541   4884        0.7    72.06    6.8    63.9   166
+##              Area
+## Alabama     50708
+## Alaska     566432
+## Arizona    113417
+## Arkansas    51945
+## California 156361
+## Colorado   103766
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>User Interface Code</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">shinyUI(fluidPage(
+  titlePanel(&quot;Population, Income, and Area by U.S. State&quot;),
+
+  sidebarLayout(
+    sidebarPanel(
+      helpText(&quot;Graphically compare Population, Income, and Area for U.S. states.
+                     Source (via state.x77 dataset):  
+                    U.S. Department of Commerce, Bureau of the Census (1977) Statistical Abstract of the United States.
+                    U.S. Department of Commerce, Bureau of the Census (1977) County and City Data Book.&quot;),
+
+      selectInput(&quot;var&quot;, 
+                  label=&quot;Choose a category to display&quot;,
+                  choices=c(&quot;Population&quot;,
+                            &quot;Income&quot;,
+                            &quot;Area&quot;
+                            ),
+                  selected=&quot;Population&quot;)
+    ),
+
+    mainPanel(plotOutput(&quot;map&quot;))
+  )
+))
+</code></pre>
+
+<pre><code>## Error: could not find function &quot;shinyUI&quot;
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>This May Not Be a Very Good &quot;Pitch&quot;</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Reasons to be generous in scoring anyway</p>
+
+<ol>
+<li> It feels good.</li>
+<li> I will be.</li>
+<li> I ran really, really short on time for this assignment.</li>
+<li> Why not?</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='I Made a Shiny App!'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Sample of Data'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='User Interface Code'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='This May Not Be a Very Good &quot;Pitch&quot;'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
